@@ -1,6 +1,6 @@
 # go-fpdf
 
-An opionated package around the jung-kurt/gofpdf package.
+An opionated Go package for working with the `jung-kurt/gofpdf` package.
 
 ## Documentation
 
