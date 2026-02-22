@@ -1,9 +1,9 @@
 module github.com/aaronland/go-fpdf
 
-go 1.20
+go 1.21
 
 require (
-	github.com/jung-kurt/gofpdf v1.16.2
+	codeberg.org/go-pdf/fpdf v0.11.1
 	github.com/sfomuseum/go-font-ocra v0.0.2
 )
 
