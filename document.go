@@ -7,7 +7,6 @@ import (
 	"sync"
 
 	gofpdf "codeberg.org/go-pdf/fpdf"
-	"github.com/sfomuseum/go-font-ocra"
 )
 
 // MM2INCH defines the number if millimeters in an inch.
@@ -124,23 +123,7 @@ func NewDocument(ctx context.Context, opts *Options) (*Document, error) {
 		Colour: []int{128, 128, 128},
 	}
 
-	if opts.OCRAFont {
-
-		font, err := ocra.LoadFPDFFont()
-
-		if err != nil {
-			return nil, fmt.Errorf("Failed to load OCRA font, %w", err)
-		}
-
-		pdf.AddFontFromBytes(font.Family, font.Style, font.JSON, font.Z)
-		pdf.SetFont(font.Family, "", 8.0)
-
-		pdf.SetTextColor(t.Colour[0], t.Colour[1], t.Colour[2])
-
-	} else {
-
-		pdf.SetFont(t.Font, t.Style, t.Size)
-	}
+	pdf.SetFont(t.Font, t.Style, t.Size)
 
 	w, h, _ := pdf.PageSize(1)
 
